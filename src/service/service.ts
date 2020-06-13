@@ -2,6 +2,7 @@ import axios from 'axios'
 import BigNumber from "bignumber.js";
 // @ts-ignore
 import seropp from 'sero-pp'
+import i18n from "../i18n";
 
 export interface Tx {
     from:string
@@ -71,10 +72,10 @@ class Service {
             const dapp = {
                 name: "MPoS",
                 contractAddress: "SERO Staking of mobile",
-                github: "https://github.com/sero-cash/sero-pp/example",
+                github: "https://github.com/uhexio/sero-mpos",
                 author: "TIM",
-                url: "http://192.168.50.86:3000",
-                logo: "http://192.168.50.86:3000/assets/icon/icon.png",
+                url: "//"+window.location.host,
+                logo: "//"+window.location.host+"/assets/icon/icon.png",
             }
 
             seropp.init(dapp,function (rest:any) {
@@ -84,6 +85,9 @@ class Service {
                     if(data){
                         localStorage.setItem("language",data.language);
                         localStorage.setItem("rpcHost",data.rpc)
+                        i18n.changeLanguage(data.language).then(() => {
+                            // document.location.href = 'http://' + document.location.host;
+                        });
                     }
                     resolve()
                 })

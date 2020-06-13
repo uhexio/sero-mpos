@@ -21,6 +21,7 @@ import utils from "../common/utils";
 import BigNumber from "bignumber.js";
 import {Pool} from "../types/types";
 import service from "../service/service";
+import i18n from "../i18n";
 
 interface State {
     data?:any
@@ -108,7 +109,7 @@ class Stake extends React.Component<any, State>{
                     </IonLabel>
                 </IonItem>
                 <IonItem lines={"none"}>
-                    <IonLabel>Fee</IonLabel>
+                    <IonLabel>{i18n.t("fee")}</IonLabel>
                     <IonNote slot={"end"} color={"tertiary"}>{utils.fromValue(data.fee,2).toString(10)}%</IonNote>
                 </IonItem>
             </IonList>
@@ -140,9 +141,8 @@ class Stake extends React.Component<any, State>{
     buyShare(){
         const that = this;
         const {data,amount,share,selectAccount} = this.state;
-        console.log("share>>>",share);
         if( !amount  || share === 0 || share === "0" ){
-            this.toast("Buy at least one share！")
+            this.toast(i18n.t("tip1"))
             return
         }
         service.jsonRpc("stake_sharePrice",[]).then((price:any)=>{
@@ -150,7 +150,7 @@ class Stake extends React.Component<any, State>{
             const amountTa = utils.toValue(amount,18)
             const balance = selectAccount.Balance.get("SERO");
             if (!balance || new BigNumber(balance).comparedTo(amountTa)<0){
-                that.toast("Not enough balance")
+                that.toast(i18n.t("tip2"))
             }else{
                 service.commitTx({
                     from:selectAccount.PK,
@@ -203,7 +203,7 @@ class Stake extends React.Component<any, State>{
 
     getBalance=(balance:any,cy:string)=>{
         if(balance && balance.has(cy)){
-            return utils.fromValue(balance.get(cy),18).toString(10)
+            return utils.fromValue(balance.get(cy),18).toFixed(6)
         }
         return "0"
     }
@@ -228,31 +228,31 @@ class Stake extends React.Component<any, State>{
                 <IonList style={{maxHeight:document.documentElement.clientHeight,height:'auto',overflowY:'scroll',background:"#fff",paddingBottom: '150px'}}>
                     <IonItemDivider>Node Info</IonItemDivider>
                     {info}
-                    <IonItemDivider>Buy Share</IonItemDivider>
+                    <IonItemDivider>{i18n.t("buyShare")}</IonItemDivider>
                     <IonItem>
-                        <IonLabel>Staking SERO</IonLabel>
+                        <IonLabel>{i18n.t("amount")}</IonLabel>
                         <IonNote slot={"end"}>
                             <IonInput type="number" value={amount} autofocus={true} placeholder="Enter Number" clearInput={true} inputMode={"decimal"} color={"dark"} debounce={4} onIonChange={e => this.setAmount(parseInt(e.detail.value!, 10))}/>
                         </IonNote>
                     </IonItem>
                     <IonItem>
-                        <IonLabel>Price</IonLabel>
+                        <IonLabel>{i18n.t("price")}</IonLabel>
                         <IonNote slot={"end"} color={"tertiary"}>{price} SERO</IonNote>
                     </IonItem>
                     <IonItem lines={"none"}>
-                        <IonLabel>Shares</IonLabel>
+                        <IonLabel>{i18n.t("shares")}</IonLabel>
                         <IonNote slot={"end"} color={"tertiary"}>{share}</IonNote>
                     </IonItem>
 
-                    <IonItemDivider>Select Account</IonItemDivider>
+                    <IonItemDivider>{i18n.t("selectAccount")}</IonItemDivider>
                     <IonItem>
-                        <IonLabel>Accounts</IonLabel>
+                        <IonLabel>{i18n.t("accounts")}</IonLabel>
                         <IonSelect value={selectAccount.PK} placeholder="Select One" onIonChange={e => this.setAccount(e.detail.value)}>
                             {options}
                         </IonSelect>
                     </IonItem>
                     <IonItem>
-                        <IonLabel>Balance</IonLabel>
+                        <IonLabel>{i18n.t("balance")}</IonLabel>
                         <IonText color={"success"}>{this.getBalance(selectAccount.Balance,"SERO")} SERO</IonText>
                     </IonItem>
                 </IonList>
@@ -260,7 +260,7 @@ class Stake extends React.Component<any, State>{
                 <div style={{position:'fixed',width:"100%",bottom:"0"}}>
                     <IonRow>
                         <IonCol>
-                            <IonButton onClick={() => this.buyShare()} expand={"block"} >Commit</IonButton>
+                            <IonButton onClick={() => this.buyShare()} expand={"block"} >{i18n.t("commit")}</IonButton>
                         </IonCol>
                     </IonRow>
                 </div>

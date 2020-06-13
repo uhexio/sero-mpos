@@ -1,9 +1,7 @@
 import * as React from 'react';
 import {
     IonContent,
-    IonHeader,
     IonPage,
-    IonTitle,
     IonToolbar,
     IonLoading,
     IonToast,
@@ -16,17 +14,15 @@ import {
     IonNote,
     IonRow,
     IonCol,
-    IonIcon,
-    IonToggle,
     IonSearchbar
 
 } from '@ionic/react';
-import { moon } from 'ionicons/icons';
 import service from "../service/service";
 import {Pool} from "../types/types";
 import PoolInfo from "../components/PoolInfo";
 import utils from "../common/utils";
 import BigNumber from 'bignumber.js'
+import i18n from '../i18n'
 
 interface State {
     poolList: Array<Pool>
@@ -144,7 +140,7 @@ class PoolList extends React.Component<any, State> {
             missRate = wishVoteNum.dividedBy(nodeVoted).multipliedBy(100).toFixed(2);
         }
 
-        const state = data.closed?<IonText color={"danger"}>Close</IonText>:<IonText color={"success"}>Normal</IonText>;
+        const state = data.closed?<IonText color={"danger"}>{i18n.t("state_closed")}</IonText>:<IonText color={"success"}>{i18n.t("state_normal")}</IonText>;
         return <div>
             <IonList>
                 <IonItem>
@@ -155,39 +151,39 @@ class PoolList extends React.Component<any, State> {
                     </IonLabel>
                 </IonItem>
                 <IonItem>
-                    <IonLabel>State</IonLabel>
+                    <IonLabel>{i18n.t("state")}</IonLabel>
                     <IonNote slot={"end"} color={"primary"}>{state}</IonNote>
                 </IonItem>
                 <IonItem>
-                    <IonLabel>Node Voted</IonLabel>
+                    <IonLabel>{i18n.t("_node_voted")}</IonLabel>
                     <IonNote slot={"end"} color={"tertiary"}>{utils.hexToString(choiceNum)}</IonNote>
                 </IonItem>
                 <IonItem>
-                    <IonLabel>Solo Voted</IonLabel>
+                    <IonLabel>{i18n.t("_solo_voted")}</IonLabel>
                     <IonNote slot={"end"} color={"tertiary"}>{utils.hexToString(soloVoted)}</IonNote>
                 </IonItem>
                 <IonItem>
-                    <IonLabel>Missed</IonLabel>
+                    <IonLabel>{i18n.t("miss")}</IonLabel>
                     <IonNote slot={"end"} color={"warning"}>{missed.toString(10)}</IonNote>
                 </IonItem>
                 <IonItem>
-                    <IonLabel>Miss Rate</IonLabel>
+                    <IonLabel>{i18n.t("missRate")}</IonLabel>
                     <IonNote slot={"end"} color={"danger"}>{missRate}%</IonNote>
                 </IonItem>
                 <IonItem>
-                    <IonLabel>Fee</IonLabel>
+                    <IonLabel>{i18n.t("fee")}</IonLabel>
                     <IonNote slot={"end"} color={"tertiary"}>{utils.fromValue(data.fee,2).toString(10)}%</IonNote>
                 </IonItem>
                 <IonItem>
-                    <IonLabel>Shares</IonLabel>
+                    <IonLabel>{i18n.t("shares")}</IonLabel>
                     <IonNote slot={"end"} color={"tertiary"}>{utils.hexToString(data.shareNum)}</IonNote>
                 </IonItem>
                 <IonItem>
-                    <IonLabel>Profit</IonLabel>
+                    <IonLabel>{i18n.t("profit")}</IonLabel>
                     <IonNote slot={"end"} color={"tertiary"}>{utils.fromValue(data.profit,18).toFixed(2)} SERO</IonNote>
                 </IonItem>
                 <IonItem>
-                    <IonLabel>Lastest Pay Block</IonLabel>
+                    <IonLabel>{i18n.t("latestPayBlock")}</IonLabel>
                     <IonNote slot={"end"} color={"tertiary"}>{utils.hexToString(data.lastPayTime)}</IonNote>
                 </IonItem>
             </IonList>
@@ -253,7 +249,7 @@ class PoolList extends React.Component<any, State> {
                         cssClass='my-custom-class'
                         isOpen={showLoading}
                         onDidDismiss={() => this.setShowLoading(false)}
-                        message={'Please wait...'}
+                        message={i18n.t("loading")}
                     />
                     <IonToast
                         isOpen={showToast}
@@ -265,10 +261,10 @@ class PoolList extends React.Component<any, State> {
                         {poolInfo}
                         <IonRow>
                             <IonCol size="3">
-                                <IonButton onClick={() => this.setShowModal(false)} expand={"block"} fill={"outline"}>Close</IonButton>
+                                <IonButton onClick={() => this.setShowModal(false)} expand={"block"} fill={"outline"}>{i18n.t("close")}</IonButton>
                             </IonCol>
                             <IonCol>
-                                <IonButton onClick={() => this.onStaking(selectPool)} expand={"block"} >Staking</IonButton>
+                                <IonButton onClick={() => this.onStaking(selectPool)} expand={"block"} >{i18n.t("staking")}</IonButton>
                             </IonCol>
                         </IonRow>
 

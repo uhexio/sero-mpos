@@ -13,6 +13,7 @@ import { IonReactRouter } from '@ionic/react-router';
 import { ellipse, square, pricetags,barChart,home } from 'ionicons/icons';
 import PoolList from './pages/PoolList';
 import Stake from "./pages/Stake";
+import i18n from './i18n'
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -47,8 +48,6 @@ class App extends React.Component<any, any>{
     })
   }
 
-
-
   render(): React.ReactNode {
     return (
         <IonApp>
@@ -58,20 +57,20 @@ class App extends React.Component<any, any>{
                   <Route path="/node/stake/:id" component={Stake} exact={true} />
                   <Route path="/node/list" component={PoolList} exact={true} />
                   <Route path="/statistics" component={My} exact={true} />
-                  <Route path="/" render={() => <Redirect to="/node/list" />} exact={true} />
+                  <Route path="/" component={PoolList} exact={true} />
               </IonRouterOutlet>
               <IonTabBar slot="bottom">
                 <IonTabButton tab="tab1" href="/node" onClick={()=>{
                   window.location.href="/node/list"
                 }}>
                   <IonIcon icon={pricetags} />
-                  <IonLabel>Nodes</IonLabel>
+                  <IonLabel>{i18n.t("nodes")}</IonLabel>
                 </IonTabButton>
                 <IonTabButton tab="tab3" href="/statistics"  onClick={()=>{
                   window.location.href="/statistics"
                 }}>
                   <IonIcon icon={barChart} />
-                  <IonLabel>Statistics</IonLabel>
+                  <IonLabel>{i18n.t("statistics")}</IonLabel>
                 </IonTabButton>
               </IonTabBar>
             </IonTabs>

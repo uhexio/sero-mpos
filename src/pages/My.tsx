@@ -8,6 +8,7 @@ import {
     IonText,
 } from '@ionic/react'
 import utils from "../common/utils";
+import i18n from "../i18n";
 
 interface State {
     statics:any
@@ -93,7 +94,7 @@ class My extends React.Component<any, State>{
 
     getBalance=(balance:any,cy:string)=>{
         if(balance && balance.has(cy)){
-            return utils.fromValue(balance.get(cy),18).toString(10)
+            return utils.fromValue(balance.get(cy),18).toFixed(6)
         }
         return "0"
     }
@@ -106,40 +107,40 @@ class My extends React.Component<any, State>{
             data = statics[0];
         }
         return <IonList>
-            <IonItemDivider>Staking Detail</IonItemDivider>
+            <IonItemDivider>{i18n.t("stakingDetail")}</IonItemDivider>
             <IonItem>
-                <IonLabel>Remaining</IonLabel>
+                <IonLabel>{i18n.t("remaining")}</IonLabel>
                 <IonNote slot={"end"} color={"primary"}>{utils.hexToString(data.remaining)}</IonNote>
             </IonItem>
 
             <IonItem>
-                <IonLabel>Expired</IonLabel>
+                <IonLabel>{i18n.t("expired")}</IonLabel>
                 <IonNote slot={"end"} color={"medium"}>{utils.hexToString(data.expired)}</IonNote>
             </IonItem>
             <IonItem>
-                <IonLabel>Missed</IonLabel>
+                <IonLabel>{i18n.t("missed")}</IonLabel>
                 <IonNote slot={"end"} color={"danger"}>{utils.hexToString(data.missed)}</IonNote>
             </IonItem>
             <IonItem>
-                <IonLabel>Total</IonLabel>
+                <IonLabel>{i18n.t("total")}</IonLabel>
                 <IonNote slot={"end"} color={"success"}>{utils.hexToString(data.total)}</IonNote>
             </IonItem>
 
             <IonItem>
-                <IonLabel>ShareIds Count</IonLabel>
+                <IonLabel>{i18n.t("shares")}</IonLabel>
                 <IonNote slot={"end"} color={"tertiary"}>{utils.hexToString(data.shareIds?data.shareIds.length:0)}</IonNote>
             </IonItem>
             <IonItem>
-                <IonLabel>Staking in Pools</IonLabel>
+                <IonLabel>{i18n.t("numberOfStakingNodes")}</IonLabel>
                 <IonNote slot={"end"} color={"tertiary"}>{data.pools?data.pools.length:0}</IonNote>
             </IonItem>
             <IonItem>
-                <IonLabel>Total Amount</IonLabel>
-                <IonNote slot={"end"} color={"secondary"}>{utils.fromValue(data.totalAmount,18).toString(10)} SERO</IonNote>
+                <IonLabel>{i18n.t("totalPledge")}</IonLabel>
+                <IonNote slot={"end"} color={"secondary"}>{utils.fromValue(data.totalAmount,18).toFixed(4)} SERO</IonNote>
             </IonItem>
             <IonItem>
-                <IonLabel>Profit</IonLabel>
-                <IonNote slot={"end"} color={"secondary"}>{utils.fromValue(data.profit,18).toString(10)} SERO</IonNote>
+                <IonLabel>{i18n.t("profit")}</IonLabel>
+                <IonNote slot={"end"} color={"secondary"}>{utils.fromValue(data.profit,18).toFixed(4)} SERO</IonNote>
             </IonItem>
         </IonList>
     }
@@ -150,15 +151,15 @@ class My extends React.Component<any, State>{
         const options = this.renderAccountsOp(accounts);
         return <div>
             <IonList>
-                <IonItemDivider>Select Account</IonItemDivider>
+                <IonItemDivider>{i18n.t("selectAccount")}</IonItemDivider>
                 <IonItem>
-                    <IonLabel>Accounts</IonLabel>
+                    <IonLabel>{i18n.t("accounts")}</IonLabel>
                     <IonSelect value={selectAccount.PK} placeholder="Select One" onIonChange={e => this.setAccount(e.detail.value)}>
                         {options}
                     </IonSelect>
                 </IonItem>
                 <IonItem lines={"none"}>
-                    <IonLabel>Balance</IonLabel>
+                    <IonLabel>{i18n.t("balance")}</IonLabel>
                     <IonText color={"secondary"}>{this.getBalance(selectAccount.Balance,"SERO")} SERO</IonText>
                 </IonItem>
                 {renderData}
