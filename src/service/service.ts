@@ -73,14 +73,12 @@ class Service {
                 name: "MPoS",
                 contractAddress: "SERO Staking of mobile",
                 github: "https://github.com/uhexio/sero-mpos",
-                author: "TIM",
+                author: "uhexio",
                 url: "//"+window.location.host,
                 logo: "//"+window.location.host+"/assets/icon/icon.png",
             }
 
             seropp.init(dapp,function (rest:any) {
-                console.log("init result >>> " , rest);
-
                 seropp.getInfo(function (data:any) {
                     if(data){
                         localStorage.setItem("language",data.language);
