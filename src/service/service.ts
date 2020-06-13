@@ -71,11 +71,11 @@ class Service {
         return new Promise(resolve=>{
             const dapp = {
                 name: "MPoS",
-                contractAddress: "SERO Staking of mobile",
+                contractAddress: "sero-mpos",
                 github: "https://github.com/uhexio/sero-mpos",
                 author: "uhexio",
-                url: "//"+window.location.host,
-                logo: "//"+window.location.host+"/assets/icon/icon.png",
+                url: window.location.href,
+                logo: window.location.origin+window.location.pathname +"assets/icon/icon.png",
             }
 
             seropp.init(dapp,function (rest:any) {

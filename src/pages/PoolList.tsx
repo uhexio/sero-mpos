@@ -55,8 +55,12 @@ class PoolList extends React.Component<any, State> {
 
     componentDidMount(): void {
 
-        this.getPoolList();
+        const that = this;
+        service.initApp().then(rest=>{
+            that.getPoolList();
+        }).catch(()=>{
 
+        })
         const tdard:any = localStorage.getItem("themeDark");
         let isDark = false;
         if(tdard === true || tdard === "true"){
