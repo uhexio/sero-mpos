@@ -1,6 +1,8 @@
 import * as React from 'react'
 import service from "../service/service";
 import {
+    IonFab,
+    IonFabButton, IonIcon,
     IonItem, IonItemDivider,
     IonLabel,
     IonList,
@@ -8,7 +10,9 @@ import {
     IonText,
 } from '@ionic/react'
 import utils from "../common/utils";
+import { createHashHistory } from 'history'
 import i18n from "../i18n";
+import {homeOutline} from "ionicons/icons";
 
 interface State {
     statics:any
@@ -164,7 +168,14 @@ class My extends React.Component<any, State>{
                 </IonItem>
                 {renderData}
             </IonList>
-
+            <IonFab vertical="bottom" horizontal="end" slot="fixed">
+                <IonFabButton onClick={()=>{
+                    // createHashHistory().push("/node/list")
+                    window.location.href="#/node/list"
+                }}>
+                    <IonIcon icon={homeOutline} />
+                </IonFabButton>
+            </IonFab>
         </div>;
     }
 }

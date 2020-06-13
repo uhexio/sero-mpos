@@ -220,7 +220,7 @@ class Stake extends React.Component<any, State>{
                 <IonHeader>
                     <IonToolbar>
                         <IonButtons slot="start">
-                            <IonBackButton defaultHref="/" />
+                            <IonBackButton defaultHref="#/" />
                         </IonButtons>
                     </IonToolbar>
                 </IonHeader>

@@ -14,9 +14,13 @@ import {
     IonNote,
     IonRow,
     IonCol,
-    IonSearchbar
+    IonSearchbar,
+    IonFab,
+    IonFabButton,IonIcon
 
 } from '@ionic/react';
+import { barChartOutline } from 'ionicons/icons';
+import { createHashHistory } from 'history'
 import service from "../service/service";
 import {Pool} from "../types/types";
 import PoolInfo from "../components/PoolInfo";
@@ -97,7 +101,7 @@ class PoolList extends React.Component<any, State> {
     }
 
     onStaking = (p: Pool) => {
-        window.location.href = `/node/stake/${p.id}`
+        window.location.href = `#/node/stake/${p.id}`
     }
 
     setShowLoading = (f: boolean) => {
@@ -270,6 +274,14 @@ class PoolList extends React.Component<any, State> {
 
                     </IonModal>
                 </IonContent>
+                <IonFab vertical="bottom" horizontal="end" slot="fixed">
+                    <IonFabButton onClick={()=>{
+                        // createHashHistory().push("/statistics")
+                        window.location.href="#/statistics"
+                    }}>
+                        <IonIcon icon={barChartOutline} />
+                    </IonFabButton>
+                </IonFab>
             </IonPage>
 
         )
