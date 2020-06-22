@@ -37,13 +37,13 @@ const PoolInfo:React.FC<PoolInfoParams> = ({pool,onView,onStaking})=>{
 
     return (
         <div>
-            <IonCard>
-                <IonCardHeader>
-                    <IonCardSubtitle><span style={{textTransform:'lowercase'}}>{utils.ellipsis(pool.id)}</span></IonCardSubtitle>
-                    <IonCardTitle>{utils.convertPoolName(pool.id)}</IonCardTitle>
+            <IonCard mode="ios">
+                <IonCardHeader mode="ios">
+                    <IonCardSubtitle mode="ios"><span style={{textTransform:'lowercase'}}>{utils.ellipsis(pool.id)}</span></IonCardSubtitle>
+                    <IonCardTitle mode="ios">{utils.convertPoolName(pool.id)}</IonCardTitle>
                 </IonCardHeader>
-                <IonCardContent>
-                    <IonGrid>
+                <IonCardContent mode="ios">
+                    <IonGrid >
                         <IonRow>
                             <IonCol>{i18n.t("shares")}<br/><IonNote color={"tertiary"}>{utils.hexToString(pool.shareNum)}</IonNote></IonCol>
                             <IonCol>{i18n.t("fee")}<br/><IonNote color={"tertiary"}>{utils.fromValue(pool.fee,2).toString(10)} %</IonNote></IonCol>
@@ -52,8 +52,8 @@ const PoolInfo:React.FC<PoolInfoParams> = ({pool,onView,onStaking})=>{
                         </IonRow>
                     </IonGrid>
                 </IonCardContent>
-                <IonItem lines={"none"}>
-                    <IonButton fill="outline" slot="end" onClick={()=>onView(pool)}>{i18n.t("view")}</IonButton>
+                <IonItem lines={"none"} mode="ios">
+                    <IonButton  mode="ios" fill="outline" slot="end" onClick={()=>onView(pool)}>{i18n.t("view")}</IonButton>
                     {pool.closed?"":<IonButton slot="end" onClick={()=>onStaking(pool)}>{i18n.t("staking")}</IonButton>}
                 </IonItem>
             </IonCard>

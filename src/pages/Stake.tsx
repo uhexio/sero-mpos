@@ -101,7 +101,7 @@ class Stake extends React.Component<any, State>{
         }
         return <div>
             <IonList>
-                <IonItem>
+                 <IonItem mode="ios">
                     <IonLabel className="ion-text-wrap">
                         <IonText color={"secondary"} style={{fontWeight:'600'}}>{utils.convertPoolName(data.id)}</IonText>
                         <p/>
@@ -109,8 +109,8 @@ class Stake extends React.Component<any, State>{
                     </IonLabel>
                 </IonItem>
                 <IonItem lines={"none"}>
-                    <IonLabel>{i18n.t("fee")}</IonLabel>
-                    <IonNote slot={"end"} color={"tertiary"}>{utils.fromValue(data.fee,2).toString(10)}%</IonNote>
+                    <IonLabel mode="ios">{i18n.t("fee")}</IonLabel>
+                    <IonNote mode="ios" slot={"end"} color={"tertiary"}>{utils.fromValue(data.fee,2).toString(10)}%</IonNote>
                 </IonItem>
             </IonList>
         </div>
@@ -226,33 +226,33 @@ class Stake extends React.Component<any, State>{
                 </IonHeader>
 
                 <IonList style={{maxHeight:document.documentElement.clientHeight,height:'auto',overflowY:'scroll',background:"#fff",paddingBottom: '150px'}}>
-                    <IonItemDivider>Node Info</IonItemDivider>
+                    <IonItemDivider mode="ios">Node Info</IonItemDivider>
                     {info}
-                    <IonItemDivider>{i18n.t("buyShare")}</IonItemDivider>
-                    <IonItem>
-                        <IonLabel>{i18n.t("amount")}</IonLabel>
-                        <IonNote slot={"end"}>
+                    <IonItemDivider mode="ios">{i18n.t("buyShare")}</IonItemDivider>
+                     <IonItem mode="ios">
+                        <IonLabel mode="ios">{i18n.t("amount")}</IonLabel>
+                        <IonNote mode="ios" slot={"end"}>
                             <IonInput type="number" value={amount} autofocus={true} placeholder="Enter Number" clearInput={true} inputMode={"decimal"} color={"dark"} debounce={4} onIonChange={e => this.setAmount(parseInt(e.detail.value!, 10))}/>
                         </IonNote>
                     </IonItem>
-                    <IonItem>
-                        <IonLabel>{i18n.t("price")}</IonLabel>
-                        <IonNote slot={"end"} color={"tertiary"}>{price} SERO</IonNote>
+                     <IonItem mode="ios">
+                        <IonLabel mode="ios">{i18n.t("price")}</IonLabel>
+                        <IonNote mode="ios" slot={"end"} color={"tertiary"}>{price} SERO</IonNote>
                     </IonItem>
                     <IonItem lines={"none"}>
-                        <IonLabel>{i18n.t("shares")}</IonLabel>
-                        <IonNote slot={"end"} color={"tertiary"}>{share}</IonNote>
+                        <IonLabel mode="ios">{i18n.t("shares")}</IonLabel>
+                        <IonNote mode="ios" slot={"end"} color={"tertiary"}>{share}</IonNote>
                     </IonItem>
 
-                    <IonItemDivider>{i18n.t("selectAccount")}</IonItemDivider>
-                    <IonItem>
-                        <IonLabel>{i18n.t("accounts")}</IonLabel>
+                    <IonItemDivider mode="ios">{i18n.t("selectAccount")}</IonItemDivider>
+                     <IonItem mode="ios">
+                        <IonLabel mode="ios">{i18n.t("accounts")}</IonLabel>
                         <IonSelect value={selectAccount.PK} placeholder="Select One" onIonChange={e => this.setAccount(e.detail.value)}>
                             {options}
                         </IonSelect>
                     </IonItem>
-                    <IonItem>
-                        <IonLabel>{i18n.t("balance")}</IonLabel>
+                     <IonItem mode="ios">
+                        <IonLabel mode="ios">{i18n.t("balance")}</IonLabel>
                         <IonText color={"success"}>{this.getBalance(selectAccount.Balance,"SERO")} SERO</IonText>
                     </IonItem>
                 </IonList>

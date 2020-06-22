@@ -110,41 +110,41 @@ class My extends React.Component<any, State>{
         if(statics && statics.length>0){
             data = statics[0];
         }
-        return <IonList>
-            <IonItemDivider>{i18n.t("stakingDetail")}</IonItemDivider>
-            <IonItem>
-                <IonLabel>{i18n.t("remaining")}</IonLabel>
-                <IonNote slot={"end"} color={"primary"}>{utils.hexToString(data.remaining)}</IonNote>
+        return <IonList mode="ios">
+            <IonItemDivider mode="ios">{i18n.t("stakingDetail")}</IonItemDivider>
+            <IonItem mode="ios">
+                <IonLabel mode="ios">{i18n.t("remaining")}</IonLabel>
+                <IonNote mode="ios" slot={"end"} color={"primary"}>{utils.hexToString(data.remaining)}</IonNote>
             </IonItem>
 
-            <IonItem>
-                <IonLabel>{i18n.t("expired")}</IonLabel>
-                <IonNote slot={"end"} color={"medium"}>{utils.hexToString(data.expired)}</IonNote>
+             <IonItem mode="ios">
+                <IonLabel mode="ios">{i18n.t("expired")}</IonLabel>
+                <IonNote mode="ios" slot={"end"} color={"medium"}>{utils.hexToString(data.expired)}</IonNote>
             </IonItem>
-            <IonItem>
-                <IonLabel>{i18n.t("missed")}</IonLabel>
-                <IonNote slot={"end"} color={"danger"}>{utils.hexToString(data.missed)}</IonNote>
+             <IonItem mode="ios">
+                <IonLabel mode="ios">{i18n.t("missed")}</IonLabel>
+                <IonNote mode="ios" slot={"end"} color={"danger"}>{utils.hexToString(data.missed)}</IonNote>
             </IonItem>
-            <IonItem>
-                <IonLabel>{i18n.t("total")}</IonLabel>
-                <IonNote slot={"end"} color={"success"}>{utils.hexToString(data.total)}</IonNote>
+             <IonItem mode="ios">
+                <IonLabel mode="ios">{i18n.t("total")}</IonLabel>
+                <IonNote mode="ios" slot={"end"} color={"success"}>{utils.hexToString(data.total)}</IonNote>
             </IonItem>
 
-            <IonItem>
-                <IonLabel>{i18n.t("shares")}</IonLabel>
-                <IonNote slot={"end"} color={"tertiary"}>{utils.hexToString(data.shareIds?data.shareIds.length:0)}</IonNote>
+             <IonItem mode="ios">
+                <IonLabel mode="ios">{i18n.t("shares")}</IonLabel>
+                <IonNote mode="ios" slot={"end"} color={"tertiary"}>{utils.hexToString(data.shareIds?data.shareIds.length:0)}</IonNote>
             </IonItem>
-            <IonItem>
-                <IonLabel>{i18n.t("numberOfStakingNodes")}</IonLabel>
-                <IonNote slot={"end"} color={"tertiary"}>{data.pools?data.pools.length:0}</IonNote>
+             <IonItem mode="ios">
+                <IonLabel mode="ios">{i18n.t("numberOfStakingNodes")}</IonLabel>
+                <IonNote mode="ios" slot={"end"} color={"tertiary"}>{data.pools?data.pools.length:0}</IonNote>
             </IonItem>
-            <IonItem>
-                <IonLabel>{i18n.t("totalPledge")}</IonLabel>
-                <IonNote slot={"end"} color={"secondary"}>{utils.fromValue(data.totalAmount,18).toFixed(4)} SERO</IonNote>
+             <IonItem mode="ios">
+                <IonLabel mode="ios">{i18n.t("totalPledge")}</IonLabel>
+                <IonNote mode="ios" slot={"end"} color={"secondary"}>{utils.fromValue(data.totalAmount,18).toFixed(4)} SERO</IonNote>
             </IonItem>
-            <IonItem>
-                <IonLabel>{i18n.t("profit")}</IonLabel>
-                <IonNote slot={"end"} color={"secondary"}>{utils.fromValue(data.profit,18).toFixed(4)} SERO</IonNote>
+             <IonItem mode="ios">
+                <IonLabel mode="ios">{i18n.t("profit")}</IonLabel>
+                <IonNote mode="ios" slot={"end"} color={"secondary"}>{utils.fromValue(data.profit,18).toFixed(4)} SERO</IonNote>
             </IonItem>
         </IonList>
     }
@@ -154,22 +154,22 @@ class My extends React.Component<any, State>{
         const renderData = this.renderData();
         const options = this.renderAccountsOp(accounts);
         return <div>
-            <IonList>
-                <IonItemDivider>{i18n.t("selectAccount")}</IonItemDivider>
-                <IonItem>
-                    <IonLabel>{i18n.t("accounts")}</IonLabel>
+            <IonList mode="ios">
+                <IonItemDivider mode="ios">{i18n.t("selectAccount")}</IonItemDivider>
+                 <IonItem mode="ios">
+                    <IonLabel mode="ios">{i18n.t("accounts")}</IonLabel>
                     <IonSelect value={selectAccount.PK} placeholder="Select One" onIonChange={e => this.setAccount(e.detail.value)}>
                         {options}
                     </IonSelect>
                 </IonItem>
                 <IonItem lines={"none"}>
-                    <IonLabel>{i18n.t("balance")}</IonLabel>
+                    <IonLabel mode="ios">{i18n.t("balance")}</IonLabel>
                     <IonText color={"secondary"}>{this.getBalance(selectAccount.Balance,"SERO")} SERO</IonText>
                 </IonItem>
                 {renderData}
             </IonList>
             <IonFab vertical="bottom" horizontal="end" slot="fixed">
-                <IonFabButton onClick={()=>{
+                <IonFabButton  mode="ios" onClick={()=>{
                     // createHashHistory().push("/node/list")
                     window.location.href="#/node/list"
                 }}>

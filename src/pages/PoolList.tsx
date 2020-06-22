@@ -151,48 +151,48 @@ class PoolList extends React.Component<any, State> {
         const state = data.closed?<IonText color={"danger"}>{i18n.t("state_closed")}</IonText>:<IonText color={"success"}>{i18n.t("state_normal")}</IonText>;
         return <div>
             <IonList>
-                <IonItem>
+                 <IonItem mode="ios">
                     <IonLabel className="ion-text-wrap">
                         <IonText color={"secondary"} style={{fontWeight:'600'}}>{utils.convertPoolName(data.id)}</IonText>
                         <p></p>
                         <IonText color={"dark"}>{data.id}</IonText>
                     </IonLabel>
                 </IonItem>
-                <IonItem>
-                    <IonLabel>{i18n.t("state")}</IonLabel>
-                    <IonNote slot={"end"} color={"primary"}>{state}</IonNote>
+                 <IonItem mode="ios">
+                    <IonLabel mode="ios">{i18n.t("state")}</IonLabel>
+                    <IonNote mode="ios" slot={"end"} color={"primary"}>{state}</IonNote>
                 </IonItem>
-                <IonItem>
-                    <IonLabel>{i18n.t("_node_voted")}</IonLabel>
-                    <IonNote slot={"end"} color={"tertiary"}>{utils.hexToString(choiceNum)}</IonNote>
+                 <IonItem mode="ios">
+                    <IonLabel mode="ios">{i18n.t("_node_voted")}</IonLabel>
+                    <IonNote mode="ios" slot={"end"} color={"tertiary"}>{utils.hexToString(choiceNum)}</IonNote>
                 </IonItem>
-                <IonItem>
-                    <IonLabel>{i18n.t("_solo_voted")}</IonLabel>
-                    <IonNote slot={"end"} color={"tertiary"}>{utils.hexToString(soloVoted)}</IonNote>
+                 <IonItem mode="ios">
+                    <IonLabel mode="ios">{i18n.t("_solo_voted")}</IonLabel>
+                    <IonNote mode="ios" slot={"end"} color={"tertiary"}>{utils.hexToString(soloVoted)}</IonNote>
                 </IonItem>
-                <IonItem>
-                    <IonLabel>{i18n.t("miss")}</IonLabel>
-                    <IonNote slot={"end"} color={"warning"}>{missed.toString(10)}</IonNote>
+                 <IonItem mode="ios">
+                    <IonLabel mode="ios">{i18n.t("miss")}</IonLabel>
+                    <IonNote mode="ios" slot={"end"} color={"warning"}>{missed.toString(10)}</IonNote>
                 </IonItem>
-                <IonItem>
-                    <IonLabel>{i18n.t("missRate")}</IonLabel>
-                    <IonNote slot={"end"} color={"danger"}>{missRate}%</IonNote>
+                 <IonItem mode="ios">
+                    <IonLabel mode="ios">{i18n.t("missRate")}</IonLabel>
+                    <IonNote mode="ios" slot={"end"} color={"danger"}>{missRate}%</IonNote>
                 </IonItem>
-                <IonItem>
-                    <IonLabel>{i18n.t("fee")}</IonLabel>
-                    <IonNote slot={"end"} color={"tertiary"}>{utils.fromValue(data.fee,2).toString(10)}%</IonNote>
+                 <IonItem mode="ios">
+                    <IonLabel mode="ios">{i18n.t("fee")}</IonLabel>
+                    <IonNote mode="ios" slot={"end"} color={"tertiary"}>{utils.fromValue(data.fee,2).toString(10)}%</IonNote>
                 </IonItem>
-                <IonItem>
-                    <IonLabel>{i18n.t("shares")}</IonLabel>
-                    <IonNote slot={"end"} color={"tertiary"}>{utils.hexToString(data.shareNum)}</IonNote>
+                 <IonItem mode="ios">
+                    <IonLabel mode="ios">{i18n.t("shares")}</IonLabel>
+                    <IonNote mode="ios" slot={"end"} color={"tertiary"}>{utils.hexToString(data.shareNum)}</IonNote>
                 </IonItem>
-                <IonItem>
-                    <IonLabel>{i18n.t("profit")}</IonLabel>
-                    <IonNote slot={"end"} color={"tertiary"}>{utils.fromValue(data.profit,18).toFixed(2)} SERO</IonNote>
+                 <IonItem mode="ios">
+                    <IonLabel mode="ios">{i18n.t("profit")}</IonLabel>
+                    <IonNote mode="ios" slot={"end"} color={"tertiary"}>{utils.fromValue(data.profit,18).toFixed(2)} SERO</IonNote>
                 </IonItem>
-                <IonItem>
-                    <IonLabel>{i18n.t("latestPayBlock")}</IonLabel>
-                    <IonNote slot={"end"} color={"tertiary"}>{utils.hexToString(data.lastPayTime)}</IonNote>
+                 <IonItem mode="ios">
+                    <IonLabel mode="ios">{i18n.t("latestPayBlock")}</IonLabel>
+                    <IonNote mode="ios" slot={"end"} color={"tertiary"}>{utils.hexToString(data.lastPayTime)}</IonNote>
                 </IonItem>
             </IonList>
         </div>
@@ -245,7 +245,7 @@ class PoolList extends React.Component<any, State> {
                     {/*<IonList>*/}
                     {/*    <IonItem lines="full">*/}
                     {/*        <IonIcon slot="start" icon={moon}/>*/}
-                    {/*        <IonLabel>*/}
+                    {/*        <IonLabel mode="ios">*/}
                     {/*            Toggle Dark*/}
                     {/*        </IonLabel>*/}
                     {/*        <IonToggle id="themeToggle" slot="end" checked={isDark} onIonChange={(v)=>{this.changeTheme(v)}}/>*/}
