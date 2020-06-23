@@ -39,7 +39,7 @@ class Stake extends React.Component<any, State>{
     state: State = {
         data:null,
         share:0,
-        amount:"0",
+        amount:"",
         price:"0",
         selectAccount:{},
         accounts:[],
@@ -117,13 +117,15 @@ class Stake extends React.Component<any, State>{
     }
 
     setAmount(amount:any){
-        if(!amount || amount <=0){
-            amount = 1;
+        if(!amount || parseFloat(amount) <=0){
+            return;
         }
-        console.log("amount>>>",amount);
-
         const that = this;
         const {selectAccount} = this.state;
+
+        if(!(selectAccount && selectAccount.PK)){
+            return;
+        }
         const params:any = {}
         params.from = selectAccount.PK;
         params.vote = selectAccount.MainPKr;
@@ -228,11 +230,25 @@ class Stake extends React.Component<any, State>{
                 <IonList style={{maxHeight:document.documentElement.clientHeight,height:'auto',overflowY:'scroll',background:"#fff",paddingBottom: '150px'}}>
                     <IonItemDivider mode="ios">Node Info</IonItemDivider>
                     {info}
-                    <IonItemDivider mode="ios">{i18n.t("buyShare")}</IonItemDivider>
+
+                    <IonItemDivider mode="ios">Step1: {i18n.t("selectAccount")}</IonItemDivider>
+                    <IonItem mode="ios">
+                        <IonLabel mode="ios">{i18n.t("accounts")}</IonLabel>
+                        <IonSelect value={selectAccount.PK} placeholder="Select One" onIonChange={e => this.setAccount(e.detail.value)}>
+                            {options}
+                        </IonSelect>
+                    </IonItem>
+                    <IonItem mode="ios">
+                        <IonLabel mode="ios">{i18n.t("balance")}</IonLabel>
+                        <IonText color={"success"}>{this.getBalance(selectAccount.Balance,"SERO")} SERO</IonText>
+                    </IonItem>
+
+
+                    <IonItemDivider mode="ios">Step2: {i18n.t("buyShare")}</IonItemDivider>
                      <IonItem mode="ios">
                         <IonLabel mode="ios">{i18n.t("amount")}</IonLabel>
                         <IonNote mode="ios" slot={"end"}>
-                            <IonInput type="number" value={amount} autofocus={true} placeholder="Enter Number" clearInput={true} inputMode={"decimal"} color={"dark"} debounce={4} onIonChange={e => this.setAmount(parseInt(e.detail.value!, 10))}/>
+                            <IonInput type="number" value={amount} autofocus={true} placeholder="Input Amount" clearInput={true} inputMode={"decimal"} color={"dark"} debounce={4} onIonChange={e => this.setAmount(e.detail.value!)}/>
                         </IonNote>
                     </IonItem>
                      <IonItem mode="ios">
@@ -244,17 +260,7 @@ class Stake extends React.Component<any, State>{
                         <IonNote mode="ios" slot={"end"} color={"tertiary"}>{share}</IonNote>
                     </IonItem>
 
-                    <IonItemDivider mode="ios">{i18n.t("selectAccount")}</IonItemDivider>
-                     <IonItem mode="ios">
-                        <IonLabel mode="ios">{i18n.t("accounts")}</IonLabel>
-                        <IonSelect value={selectAccount.PK} placeholder="Select One" onIonChange={e => this.setAccount(e.detail.value)}>
-                            {options}
-                        </IonSelect>
-                    </IonItem>
-                     <IonItem mode="ios">
-                        <IonLabel mode="ios">{i18n.t("balance")}</IonLabel>
-                        <IonText color={"success"}>{this.getBalance(selectAccount.Balance,"SERO")} SERO</IonText>
-                    </IonItem>
+
                 </IonList>
 
                 <div style={{position:'fixed',width:"100%",bottom:"0"}}>
