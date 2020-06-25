@@ -15,7 +15,7 @@ import {
     IonBackButton,
     IonHeader,
     IonToolbar,
-    IonButtons, IonTabButton, IonIcon, IonTabBar,IonToast
+    IonButtons,IonToast
 } from "@ionic/react";
 import utils from "../common/utils";
 import BigNumber from "bignumber.js";
