@@ -34,7 +34,8 @@ export default {
     },
 
     convertPoolName(poolId:string){
-        return poolName.en_US[poolId]
+        const local:any = localStorage.getItem("language")?localStorage.getItem("language"):"en_US";
+        return poolName[local][poolId]
     }
 }
 
