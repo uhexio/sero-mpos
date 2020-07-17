@@ -14,8 +14,8 @@ import {
     IonSelectOption,
     IonBackButton,
     IonHeader,
-    IonToolbar,
-    IonButtons,IonToast
+    IonToolbar,IonContent,
+    IonButtons, IonToast, IonPage
 } from "@ionic/react";
 import utils from "../common/utils";
 import BigNumber from "bignumber.js";
@@ -218,14 +218,15 @@ class Stake extends React.Component<any, State>{
 
 
         return (
-            <div >
+            <IonPage >
                 <IonHeader>
                     <IonToolbar>
                         <IonButtons slot="start">
-                            <IonBackButton defaultHref="#/" />
+                            <IonBackButton defaultHref="/node/list" />
                         </IonButtons>
                     </IonToolbar>
                 </IonHeader>
+                <IonContent>
 
                 <IonList style={{maxHeight:document.documentElement.clientHeight,height:'auto',overflowY:'scroll',background:"#fff",paddingBottom: '150px'}}>
                     <IonItemDivider mode="ios">Node Info</IonItemDivider>
@@ -278,7 +279,8 @@ class Stake extends React.Component<any, State>{
                     duration={2000}
                     color={"warning"}
                 />
-            </div>
+                </IonContent>
+            </IonPage>
         )
     }
 }
