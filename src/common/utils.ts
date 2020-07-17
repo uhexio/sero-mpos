@@ -3,8 +3,11 @@ import poolName from './poolName'
 
 export default {
 
-    ellipsis:(str: string): string => {
-        const splet:number = 10;
+    ellipsis:(str: string,split?:number): string => {
+        let splet:number = 10;
+        if(split){
+            splet = split;
+        }
         if (str && str.length > splet) {
             str = str.substr(0, splet) + '...' + str.substr(str.length - splet);
         }

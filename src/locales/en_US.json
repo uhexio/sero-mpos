@@ -31,5 +31,17 @@
   "totalPledge":"Total Pledge",
   "buyShare": "Buy Share",
   "tip1": "At least Buy one share！",
-  "tip2": "Not enough balance"
+  "tip2": "Not enough balance",
+
+  "descTitle": "Introduction to MPoS",
+  "description": "MPoS is a DApp embedded in the SERO official wallet. It is a fully decentralized product developed according to the SERO wallet access standard. Users can pledge SERO coins on MPoS for Proof of Stake to obtain Interest income.",
+  "summary": "Summary",
+  "blockHeigt": "Latest Block Height",
+  "avgTime": "Average Block Time",
+  "latestPrice": "Current Price",
+  "posRewardOfBlock": "PoS Reward for each block",
+  "numberOfPos": "Number of votes per block",
+  "rewardOfPerShare": "Rewards per ticket",
+  "totalShares": "Total Shares Left",
+  "totalNodeNum": "Number of Nodes"
 }

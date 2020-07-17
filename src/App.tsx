@@ -1,5 +1,18 @@
 import React from 'react';
-import { HashRouter as Router,Switch, Route } from 'react-router-dom';
+import { Route,Redirect} from 'react-router-dom';
+import {
+    IonApp,
+    IonIcon,
+    IonLabel,
+    IonRouterOutlet,
+    IonTabBar,
+    IonTabButton,
+    IonBadge,
+    IonTabs
+} from '@ionic/react';
+import { IonReactHashRouter } from '@ionic/react-router';
+import { barChartOutline,homeOutline, personOutline,bookmarksOutline} from 'ionicons/icons';
+
 import PoolList from './pages/PoolList';
 import Stake from "./pages/Stake";
 
@@ -23,6 +36,8 @@ import '@ionic/react/css/display.css';
 import './theme/variables.css';
 import service from "./service/service";
 import My from "./pages/My";
+import i18n from './i18n'
+import Home from "./pages/Home";
 // @ts-ignore
 
 class App extends React.Component<any, any>{
@@ -38,12 +53,36 @@ class App extends React.Component<any, any>{
 
   render(): React.ReactNode {
     return (
-        <Router>
-          <Route path="/node/stake/:id" component={Stake} exact={true} />
-          <Route path="/node/list" component={PoolList} exact={true} />
-          <Route path="/statistics" component={My} exact={true} />
-          <Route path="/" component={PoolList} exact={true} />
-        </Router>
+      <IonApp>
+          <IonReactHashRouter>
+              <IonTabs>
+                  <IonRouterOutlet animated={true}>
+                      {/*<Switch>*/}
+                      <Route path="/node/stake/:id" component={Stake} exact={true} />
+                      <Route path="/node/list" component={PoolList} exact={true} />
+                      <Route path="/my" component={My} exact={true} />
+                      <Route path="/summary" component={Home} exact={true} />
+                      <Route path="/" render={() => <Redirect to="/summary" />} exact={true} />
+                      {/*</Switch>*/}
+                  </IonRouterOutlet>
+                  <IonTabBar slot="bottom">
+                      <IonTabButton tab="summary" href="/summary">
+                          <IonIcon icon={barChartOutline} />
+                          <IonLabel>{i18n.t("summary")}</IonLabel>
+                      </IonTabButton>
+
+                      <IonTabButton tab="node/list" href="/node/list">
+                          <IonIcon icon={bookmarksOutline} />
+                          <IonLabel>{i18n.t("nodes")}</IonLabel>
+                      </IonTabButton>
+                      <IonTabButton tab="my" href="/my">
+                          <IonIcon icon={personOutline} />
+                          <IonLabel>{i18n.t("accounts")}</IonLabel>
+                      </IonTabButton>
+                  </IonTabBar>
+              </IonTabs>
+          </IonReactHashRouter>
+      </IonApp>
     );
   }
 }

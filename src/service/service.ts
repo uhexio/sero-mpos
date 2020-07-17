@@ -18,13 +18,16 @@ class Service {
         this.id = 0;
     }
 
-    async jsonRpc(method: string, args: any) {
+    async jsonRpc(method: string, args: any,rpcHost?:string) {
         const data: any = {
             id: this.id++,
             method: method,
             params: args
         }
-        const host = localStorage.getItem("rpcHost");
+        let host = localStorage.getItem("rpcHost");
+        if(rpcHost){
+            host = rpcHost;
+        }
         return new Promise((resolve, reject) => {
             if(!host){
                 reject(new Error("rpc host required!"))
@@ -39,6 +42,16 @@ class Service {
                     reject(e)
                 })
             }
+        })
+    }
+
+    async get(url: string) {
+        return new Promise((resolve, reject) => {
+            axios.get(url).then((resp: any) => {
+                resolve(resp.data)
+            }).catch(e => {
+                reject(e)
+            })
         })
     }
 

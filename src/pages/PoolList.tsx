@@ -19,8 +19,6 @@ import {
     IonFabButton,IonIcon
 
 } from '@ionic/react';
-import { barChartOutline } from 'ionicons/icons';
-import { createHashHistory } from 'history'
 import service from "../service/service";
 import {Pool} from "../types/types";
 import PoolInfo from "../components/PoolInfo";
@@ -89,7 +87,6 @@ class PoolList extends React.Component<any, State> {
     }
 
     renderList = (list: Array<Pool>) => {
-        console.log("list>>>", list);
         let pools: Array<any> = new Array<any>();
         list.forEach((value => {
             pools.push(<PoolInfo pool={value} onView={this.onView} onStaking={this.onStaking}/>)
@@ -163,11 +160,11 @@ class PoolList extends React.Component<any, State> {
                     <IonNote mode="ios" slot={"end"} color={"primary"}>{state}</IonNote>
                 </IonItem>
                  <IonItem mode="ios">
-                    <IonLabel mode="ios">{i18n.t("_node_voted")}</IonLabel>
+                    <IonLabel mode="ios">{i18n.t("node_voted")}</IonLabel>
                     <IonNote mode="ios" slot={"end"} color={"tertiary"}>{utils.hexToString(choiceNum)}</IonNote>
                 </IonItem>
                  <IonItem mode="ios">
-                    <IonLabel mode="ios">{i18n.t("_solo_voted")}</IonLabel>
+                    <IonLabel mode="ios">{i18n.t("solo_voted")}</IonLabel>
                     <IonNote mode="ios" slot={"end"} color={"tertiary"}>{utils.hexToString(soloVoted)}</IonNote>
                 </IonItem>
                  <IonItem mode="ios">
@@ -278,14 +275,6 @@ class PoolList extends React.Component<any, State> {
 
                     </IonModal>
                 </IonContent>
-                <IonFab vertical="bottom" horizontal="end" slot="fixed">
-                    <IonFabButton onClick={()=>{
-                        // createHashHistory().push("/statistics")
-                        window.location.href="#/statistics"
-                    }}>
-                        <IonIcon icon={barChartOutline} />
-                    </IonFabButton>
-                </IonFab>
             </IonPage>
 
         )

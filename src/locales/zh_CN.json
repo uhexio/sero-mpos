@@ -32,5 +32,18 @@
   "totalPledge":"总质押",
   "buyShare": "购买份额",
   "tip1": "至少购买一份",
-  "tip2": "余额不足"
+  "tip2": "余额不足",
+
+  "descTitle":"MPoS介绍",
+  "description": "MPoS是SERO官方钱包中嵌入的DApp，是按SERO钱包接入标准开发且完全去中心化的产品。用户可以在MPoS上质押SERO币进行权益证明(Proof of Stake)，从而获取利息收益。",
+  "summary": "统计",
+  "blockHeigt": "最新区块高度",
+  "avgTime": "平均出块时间",
+  "latestPrice": "当前票价",
+  "posRewardOfBlock": "每个区块的PoS奖励",
+  "numberOfPos": "每个区块投票的数量",
+  "rewardOfPerShare": "每张票的奖励",
+  "totalShares": "剩余总票数",
+  "totalNodeNum": "节点数量"
+
 }

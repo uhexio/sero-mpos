@@ -32,5 +32,17 @@
   "totalPledge": "総公約",
   "buyShare": "共有を購入",
   "tip1": "少なくとも1株を購入する！",
-  "tip2": "バランスが不十分"
+  "tip2": "バランスが不十分",
+
+  "descTitle": "MPoSの概要",
+  "description": "MPoSは,SERO公式ウォレットに組み込まれたDAppです。これは,SEROウォレットアクセス標準に従って開発された完全に分散された製品です。ユーザーはMPoSでSEROコインを誓約して,Proof of Stakeを取得できます。 金利収入。",
+  "summary": "統計",
+  "blockHeigt": "最新のブロックの高さ",
+  "avgTime": "平均ブロック時間",
+  "latestPrice": "現在の価格",
+  "posRewardOfBlock": "各ブロックのPoS報酬",
+  "numberOfPos": "ブロックあたりの投票数",
+  "rewardOfPerShare": "チケットあたりの報酬",
+  "totalShares": "残りのシェア",
+  "totalNodeNum": "ノード数"
 }

@@ -7,12 +7,10 @@ import {
     IonLabel,
     IonList,
     IonNote, IonSelect, IonSelectOption,
-    IonText,
+    IonText,IonPage,IonContent
 } from '@ionic/react'
 import utils from "../common/utils";
-import { createHashHistory } from 'history'
 import i18n from "../i18n";
-import {homeOutline} from "ionicons/icons";
 
 interface State {
     statics:any
@@ -153,30 +151,24 @@ class My extends React.Component<any, State>{
         const {selectAccount,accounts} = this.state;
         const renderData = this.renderData();
         const options = this.renderAccountsOp(accounts);
-        return <div>
-            <IonList mode="ios">
-                <IonItemDivider mode="ios">{i18n.t("selectAccount")}</IonItemDivider>
-                 <IonItem mode="ios">
-                    <IonLabel mode="ios">{i18n.t("accounts")}</IonLabel>
-                    <IonSelect value={selectAccount.PK} placeholder="Select One" onIonChange={e => this.setAccount(e.detail.value)}>
-                        {options}
-                    </IonSelect>
-                </IonItem>
-                <IonItem lines={"none"}>
-                    <IonLabel mode="ios">{i18n.t("balance")}</IonLabel>
-                    <IonText color={"secondary"}>{this.getBalance(selectAccount.Balance,"SERO")} SERO</IonText>
-                </IonItem>
-                {renderData}
-            </IonList>
-            <IonFab vertical="bottom" horizontal="end" slot="fixed">
-                <IonFabButton  mode="ios" onClick={()=>{
-                    // createHashHistory().push("/node/list")
-                    window.location.href="#/node/list"
-                }}>
-                    <IonIcon icon={homeOutline} />
-                </IonFabButton>
-            </IonFab>
-        </div>;
+        return <IonPage>
+            <IonContent>
+                <IonList mode="ios">
+                    <IonItemDivider mode="ios">{i18n.t("selectAccount")}</IonItemDivider>
+                    <IonItem mode="ios">
+                        <IonLabel mode="ios">{i18n.t("accounts")}</IonLabel>
+                        <IonSelect value={selectAccount.PK} placeholder="Select One" onIonChange={e => this.setAccount(e.detail.value)}>
+                            {options}
+                        </IonSelect>
+                    </IonItem>
+                    <IonItem lines={"none"}>
+                        <IonLabel mode="ios">{i18n.t("balance")}</IonLabel>
+                        <IonText color={"secondary"}>{this.getBalance(selectAccount.Balance,"SERO")} SERO</IonText>
+                    </IonItem>
+                    {renderData}
+                </IonList>
+            </IonContent>
+        </IonPage>
     }
 }
 
