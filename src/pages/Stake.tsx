@@ -228,7 +228,7 @@ class Stake extends React.Component<any, State>{
                 </IonHeader>
                 <IonContent>
 
-                <IonList style={{maxHeight:document.documentElement.clientHeight,height:'auto',overflowY:'scroll',background:"#fff",paddingBottom: '150px'}}>
+                <IonList style={{maxHeight:document.documentElement.clientHeight,height:'auto',overflowY:'scroll',background:"#fff",paddingBottom: '20px'}}>
                     <IonItemDivider mode="ios">Node Info</IonItemDivider>
                     {info}
 
@@ -263,11 +263,10 @@ class Stake extends React.Component<any, State>{
 
 
                 </IonList>
-
-                <div style={{position:'fixed',width:"100%",bottom:"0"}}>
+                <div>
                     <IonRow>
                         <IonCol>
-                            <IonButton onClick={() => this.buyShare()} expand={"block"} >{i18n.t("commit")}</IonButton>
+                            <IonButton onClick={() => this.buyShare()} expand={"block"} fill="outline" >{i18n.t("commit")}</IonButton>
                         </IonCol>
                     </IonRow>
                 </div>
