@@ -101,7 +101,7 @@ class Home extends React.Component<State, any>{
         }
         let totalShares = totalCurrentShares.plus(totalMiss).plus(totalExpire).plus(totalChoice);
         const BT:any = (blockHeightA.timestamp - blockHeightB.timestamp)/500;
-        const perShareReward = utils.fromValue(new BigNumber(totalReword).minus(new BigNumber(powReward[0])).div(3),18);
+        const perShareReward = utils.fromValue(new BigNumber(totalReword).minus(new BigNumber(powReward[0])).div(blockHeightA.currentVotes?blockHeightA.currentVotes.length:3),18);
         const dayChoice = totalChoice.multipliedBy(
             new BigNumber(utils.toValue(1e4,18).div(sharePrice).toFixed(0,1))
         ).div(totalShares);
@@ -114,7 +114,7 @@ class Home extends React.Component<State, any>{
             showLoading:false,
             blockHeight:new BigNumber(blockHeight).toNumber(),
             avgTime:new BigNumber(BT).toFixed(4) + " s",
-            sharesOfBlock:3,
+            sharesOfBlock:blockHeightA.currentVotes?blockHeightA.currentVotes.length:3,
             latestPrice:utils.fromValue(sharePrice,18).toFixed(6,1) + " SERO",
             profitPerShare:perShareReward.toFixed(6,1),
             profitPerM:ps.toString(10) +' SERO/天',
