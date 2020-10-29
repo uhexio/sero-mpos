@@ -40,8 +40,8 @@
   "blockHeigt": "최신 블록 높이",
   "avgTime": "평균 블록 시간",
   "latestPrice": "현재 가격",
-  "posRewardOfBlock": "각 블록에 대한 PoS 보상",
-  "numberOfPos": "블록 당 투표 수",
+  "posRewardOfBlock": "PoS 보상",
+  "numberOfPos": "투표 번호",
   "rewardOfPerShare": "티켓 당 보상",
   "totalShares": "총 공유 왼쪽",
   "totalNodeNum": "노드 수"

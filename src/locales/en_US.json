@@ -39,8 +39,8 @@
   "blockHeigt": "Latest Block Height",
   "avgTime": "Average Block Time",
   "latestPrice": "Current Price",
-  "posRewardOfBlock": "PoS Reward for each block",
-  "numberOfPos": "Number of votes per block",
+  "posRewardOfBlock": "PoS Reward",
+  "numberOfPos": "Votes Number ",
   "rewardOfPerShare": "Rewards per ticket",
   "totalShares": "Total Shares Left",
   "totalNodeNum": "Number of Nodes"

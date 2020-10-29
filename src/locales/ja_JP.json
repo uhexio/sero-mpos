@@ -40,8 +40,8 @@
   "blockHeigt": "最新のブロックの高さ",
   "avgTime": "平均ブロック時間",
   "latestPrice": "現在の価格",
-  "posRewardOfBlock": "各ブロックのPoS報酬",
-  "numberOfPos": "ブロックあたりの投票数",
+  "posRewardOfBlock": "PoS報酬",
+  "numberOfPos": "投票数",
   "rewardOfPerShare": "チケットあたりの報酬",
   "totalShares": "残りのシェア",
   "totalNodeNum": "ノード数"

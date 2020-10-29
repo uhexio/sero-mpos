@@ -40,8 +40,8 @@
   "blockHeigt": "最新区块高度",
   "avgTime": "平均出块时间",
   "latestPrice": "当前票价",
-  "posRewardOfBlock": "每个区块的PoS奖励",
-  "numberOfPos": "每个区块投票的数量",
+  "posRewardOfBlock": "区块的PoS奖励",
+  "numberOfPos": "区块投票的数量",
   "rewardOfPerShare": "每张票的奖励",
   "totalShares": "剩余总票数",
   "totalNodeNum": "节点数量"

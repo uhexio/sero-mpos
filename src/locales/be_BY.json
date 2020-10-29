@@ -40,8 +40,8 @@
   "blockHeigt": "Апошняя вышыня блока",
   "avgTime": "Сярэдні час блока",
   "апошняя цана": "Бягучая цана",
-  "posRewardOfBlock": "Узнагарода PoS за кожны блок",
-  "numberOfPos": "Колькасць галасоў за блок",
+  "posRewardOfBlock": "Узнагарода PoS",
+  "numberOfPos": "Нумар галасоў",
   "наградаOfPerShare": "Узнагароды за квіток",
   "totalShares": "Усяго адкрытых акцый",
   "totalNodeNum": "Колькасць вузлоў"
