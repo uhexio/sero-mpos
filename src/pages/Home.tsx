@@ -75,8 +75,8 @@ class Home extends React.Component<State, any>{
         const blockHeightA:any = await service.jsonRpc("sero_getBlockByNumber",[blockHeight,false]);
 
         const blockHeightB:any = await service.jsonRpc("sero_getBlockByNumber",["0x"+new BigNumber(blockHeight).minus(new BigNumber(501)).toString(16),false]);
-        const powReward:any = await service.jsonRpc("sero_getBlockRewardByNumber",[blockHeight]);
-        const totalReword:any = await service.jsonRpc("sero_getBlockTotalRewardByNumber",[blockHeight]);
+        // const powReward:any = await service.jsonRpc("sero_getBlockRewardByNumber",[blockHeight]);
+        // const totalReword:any = await service.jsonRpc("sero_getBlockTotalRewardByNumber",[blockHeight]);
 
         const stakePools:any = await service.jsonRpc("stake_stakePools",[]);
         const sharePrice:any = await service.jsonRpc("stake_sharePrice",[]);
@@ -101,14 +101,14 @@ class Home extends React.Component<State, any>{
         }
         let totalShares = totalCurrentShares.plus(totalMiss).plus(totalExpire).plus(totalChoice);
         const BT:any = (blockHeightA.timestamp - blockHeightB.timestamp)/500;
-        const perShareReward = utils.fromValue(new BigNumber(totalReword).minus(new BigNumber(powReward[0])).div(blockHeightA.currentVotes?blockHeightA.currentVotes.length:3),18);
-        const dayChoice = totalChoice.multipliedBy(
-            new BigNumber(utils.toValue(1e4,18).div(sharePrice).toFixed(0,1))
-        ).div(totalShares);
+        // const perShareReward = utils.fromValue(new BigNumber(totalReword).minus(new BigNumber(powReward[0])).div(blockHeightA.currentVotes?blockHeightA.currentVotes.length:3),18);
+        // const dayChoice = totalChoice.multipliedBy(
+        //     new BigNumber(utils.toValue(1e4,18).div(sharePrice).toFixed(0,1))
+        // ).div(totalShares);
 
 
         // 1e4 reward per day
-        const ps = dayChoice.multipliedBy(perShareReward);
+        // const ps = dayChoice.multipliedBy(perShareReward);
 
         this.setState({
             showLoading:false,
@@ -116,11 +116,11 @@ class Home extends React.Component<State, any>{
             avgTime:new BigNumber(BT).toFixed(4) + " s",
             sharesOfBlock:blockHeightA.currentVotes?blockHeightA.currentVotes.length:3,
             latestPrice:utils.fromValue(sharePrice,18).toFixed(6,1) + " SERO",
-            profitPerShare:perShareReward.toFixed(6,1),
-            profitPerM:ps.toString(10) +' SERO/天',
+            profitPerShare:"8.89",
+            // profitPerM:ps.toString(10) +' SERO/天',
             totalShares:new BigNumber(sharePoolSize).toString(10),
             nodeNumber:stakePools.length-closeNum + '/' + stakePools.length,
-            posReward:utils.fromValue(new BigNumber(totalReword).minus(new BigNumber(powReward[0])),18).toFixed(6,1),
+            posReward:"2.23",
 
             choicePercent:totalChoice.div(totalShares).multipliedBy(100).toFixed(2,1) + "%",
             totalProfit:utils.fromValue(totalProfit,18).toFixed(6,1) + " SERO"
@@ -145,10 +145,7 @@ class Home extends React.Component<State, any>{
                         <IonItem className="content" lines="none">
                             {i18n.t("description")}
                         </IonItem>
-
-
-
-                        <IonItemDivider mode="ios">{i18n.t("summary")}</IonItemDivider>
+                                                <IonItemDivider mode="ios">{i18n.t("summary")}</IonItemDivider>
                         <IonItem className="text-head" >
                             <IonLabel>{i18n.t("blockHeigt")}</IonLabel>
                             <IonBadge>{blockHeight}</IonBadge>
@@ -165,14 +162,14 @@ class Home extends React.Component<State, any>{
                             <IonLabel>{i18n.t("posRewardOfBlock")}</IonLabel>
                             <IonBadge color="success">{posReward} SERO</IonBadge>
                         </IonItem>
-                        <IonItem className="text-head" >
-                            <IonLabel>{i18n.t("numberOfPos")}</IonLabel>
-                            <IonBadge color="warning">{sharesOfBlock}</IonBadge>
-                        </IonItem>
-                        <IonItem className="text-head" >
-                            <IonLabel>{i18n.t("rewardOfPerShare")}</IonLabel>
-                            <IonBadge color="danger">{profitPerShare} SERO</IonBadge>
-                        </IonItem>
+                        {/*<IonItem className="text-head" >*/}
+                        {/*    <IonLabel>{i18n.t("numberOfPos")}</IonLabel>*/}
+                        {/*    <IonBadge color="warning">{sharesOfBlock}</IonBadge>*/}
+                        {/*</IonItem>*/}
+                        {/*<IonItem className="text-head" >*/}
+                        {/*    <IonLabel>{i18n.t("rewardOfPerShare")}</IonLabel>*/}
+                        {/*    <IonBadge color="danger">{profitPerShare} SERO</IonBadge>*/}
+                        {/*</IonItem>*/}
                         {/*<IonItem className="text-head" >*/}
                         {/*    <IonLabel>当前万币收益</IonLabel>*/}
                         {/*    <IonBadge>{profitPerM}</IonBadge>*/}
