@@ -28,7 +28,8 @@ const poolName:any = {
         "0x92af05b6d6c27a73eb8489f100c859cf3167298915cbae7262345e17aee6aa2c": "Bilaxy节点",
         "0x7fbbc2f11ac02255b48c8ab534d08a0e2fa134d483794ca9294ad296f8e71df7": "HCOIN",
         "0x3800ad263e7b866d5fb21a59f867e415e6d8515b9ae58c84a9c1cdb38e7ba729": "BiKi矿池",
-        "0x9da264a7de42e3bf233ba3e47859cfc6434dc0649caef3e4dca8a32207ff78ee": "松原"
+        "0x9da264a7de42e3bf233ba3e47859cfc6434dc0649caef3e4dca8a32207ff78ee": "松原",
+        "0x3b24826fe0216e937c781d859e7a9d4a3440f1bf31173727231b90f3cd69c1a9": "奥特曼节点"
     },
     en_US: {
         "0x388b2c9ba68a96bf697602fef9219f64e4ff8aef49815d0aeb56afd2a1276942": "SERO Node (sero.im)",
@@ -58,7 +59,8 @@ const poolName:any = {
         "0xce85c13d0942c3118873facf99669d193711bdca77b3de36668fdf29429bd8e5": "Sun Chase Node",
         "0x92af05b6d6c27a73eb8489f100c859cf3167298915cbae7262345e17aee6aa2c": "Bilaxy Node",
         "0x7fbbc2f11ac02255b48c8ab534d08a0e2fa134d483794ca9294ad296f8e71df7": "HCOIN Node",
-        "0x3800ad263e7b866d5fb21a59f867e415e6d8515b9ae58c84a9c1cdb38e7ba729": "BiKi Pool"
+        "0x3800ad263e7b866d5fb21a59f867e415e6d8515b9ae58c84a9c1cdb38e7ba729": "BiKi Pool",
+        "0x3b24826fe0216e937c781d859e7a9d4a3440f1bf31173727231b90f3cd69c1a9": "Ultraman Node"
     }
 }
 export default poolName
