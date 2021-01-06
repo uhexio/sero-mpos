@@ -102,7 +102,7 @@
   },
   "description": "An Ionic project",
   "devDependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "sero-pp": "^1.0.4"
   },
   "jest": {
